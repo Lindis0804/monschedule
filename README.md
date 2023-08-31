@@ -33,17 +33,17 @@ git clone https://github.com/Lindis0804/monschedule
 cd backend
 ```
 
+<br/>
+<div align="center">
+<img src="./images/cd_backend.png" style="width:50%">
+</div>
+<br/>
 - Install neccessary packages:
 
 ```bash
 npm install
 ```
 
-<br/>
-<div align="center">
-<img src="./images/cd_backend.png" style="width:50%">
-</div>
-<br/>
 - Run server:
 
 ```bash
@@ -57,3 +57,4 @@ npm start
 <img src="./images/run_server.png" style="width:50%">
 </div>
 <br/>
+3. Front-end:

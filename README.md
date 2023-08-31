@@ -22,5 +22,38 @@ Monschedule is a website that helps you to make plans, to make your life better.
 1. Clone or download project:
 
 ```bash
-git clone
+git clone https://github.com/Lindis0804/monschedule
 ```
+
+2. Backend:
+
+- Switch to folder backend:
+
+```bash
+cd backend
+```
+
+- Install neccessary packages:
+
+```bash
+npm install
+```
+
+<br/>
+<div align="center">
+<img src="./images/cd_backend.png" style="width:50%">
+</div>
+<br/>
+- Run server:
+
+```bash
+npm start
+```
+
+=> Result:
+<br/>
+
+<div align="center">
+<img src="./images/run_server.png" style="width:50%">
+</div>
+<br/>

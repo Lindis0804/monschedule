@@ -1,0 +1,44 @@
+const express = require("express");
+const app = express();
+const cors = require("cors");
+const port = process.env.PORT || 8000;
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const headerParser = require("header-parser");
+const morgan = require("morgan");
+const dotenv = require("dotenv");
+const userController = require("./controllers/userController");
+const userRouter = require("./routes/userRoutes");
+const testRouter = require("./routes/testRoutes");
+const workspaceRouter = require("./routes/workspaceRoutes");
+const boardRouter = require("./routes/boardRoutes");
+const Workspace = require("./models/workspaceModel");
+const columnRouter = require("./routes/columnRoutes");
+const cardController = require("./controllers/cardController");
+const cardRouter = require("./routes/cardRoutes");
+const taskRouter = require("./routes/taskRoutes");
+const commentRouter = require("./routes/commentRoutes");
+dotenv.config();
+mongoose.connect(process.env.MONGODB_URL, () => {
+  console.log("Connected mongodb");
+});
+app.use(headerParser);
+app.use(bodyParser.json({ limit: "500mb" }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+app.use(morgan("common"));
+app.use("/user", userRouter);
+app.use("/workspace", workspaceRouter);
+app.use("/test", testRouter);
+app.use("/board", boardRouter);
+app.use("/column", columnRouter);
+app.use("/card", cardRouter);
+app.use("/task", taskRouter);
+app.use("/comment", commentRouter);
+app.get("/", async (req, res) => {
+  const data = await Workspace.find({});
+  return res.status(200).json("Hello World!!");
+});
+app.listen(port, () => {
+  console.log(`Server is running ... on ${port}`);
+});

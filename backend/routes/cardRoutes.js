@@ -1,0 +1,71 @@
+const cardController = require("../controllers/cardController");
+const validateController = require("../controllers/validateController");
+
+const cardRouter = require("express").Router();
+cardRouter.get(
+  "/get/:cardId",
+  validateController.checkToken,
+  validateController.checkAccessRightToCard,
+  cardController.getCardById
+);
+cardRouter.put(
+  "/update",
+  validateController.checkToken,
+  validateController.checkAccessRightToCard,
+  cardController.updateCard
+);
+cardRouter.post(
+  "/addMember",
+  validateController.checkToken,
+  validateController.checkAccessRightToCard,
+  cardController.addMember
+);
+cardRouter.delete(
+  "/deleteMember",
+  validateController.checkToken,
+  validateController.checkAccessRightToCard,
+  cardController.deleteMember
+);
+cardRouter.post(
+  "/addLabel",
+  validateController.checkToken,
+  validateController.checkAccessRightToCard,
+  cardController.addLabel
+);
+cardRouter.delete(
+  "/deleteLabel",
+  validateController.checkToken,
+  validateController.checkAccessRightToCard,
+  cardController.deleteLabel
+);
+cardRouter.post(
+  "/addChecklist",
+  validateController.checkToken,
+  validateController.checkAccessRightToCard,
+  cardController.addChecklist
+);
+cardRouter.delete(
+  "/deleteChecklist",
+  validateController.checkToken,
+  validateController.checkAccessRightToChecklist,
+  cardController.deleteChecklist
+);
+cardRouter.put(
+  "/updateChecklist",
+  validateController.checkToken,
+  validateController.checkAccessRightToChecklist,
+  cardController.updateChecklist
+);
+cardRouter.post(
+  "/addTask",
+  validateController.checkToken,
+  validateController.checkAccessRightToChecklist,
+  cardController.addTask
+);
+cardRouter.delete(
+  "/deleteTask",
+  validateController.checkToken,
+  validateController.checkAccessRightToTask,
+  cardController.deleteTask
+);
+module.exports = cardRouter;
